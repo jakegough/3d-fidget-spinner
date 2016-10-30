@@ -1,0 +1,1 @@
+3D Fidget Spinners, authored in [OpenSCAD](http://www.openscad.org/downloads.html).
