@@ -1,0 +1,1 @@
+openscad.build.cmd "..\src\knob.608.scad"

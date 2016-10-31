@@ -1,4 +1,4 @@
-use <spinner.608.scad>
+include <spinner.608.lib.scad>;
 
 build_spinner_608(
     legs = 3,
