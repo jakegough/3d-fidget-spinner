@@ -1,4 +1,4 @@
-include <spinner.lib.scad>;
+include <shapes/shapes.lib.scad>;
 
 $fn = 96;
 

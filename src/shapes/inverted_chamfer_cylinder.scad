@@ -3,8 +3,8 @@ use <torus.scad>;
 inverted_chamfer_cylinder();
 
 module inverted_chamfer_cylinder(
-    h = 7, 
-    r = 15, 
+    h = 10, 
+    r = 5, 
     chamfer_radius = 1,
     extra_margin_bottom = 1,
     extra_margin_top = 1)

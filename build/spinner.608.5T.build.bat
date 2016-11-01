@@ -1,1 +1,1 @@
-openscad.build.cmd "..\src\spinner.608.5T.scad"
+openscad.build.cmd "..\src\spinner.608.5t.scad"

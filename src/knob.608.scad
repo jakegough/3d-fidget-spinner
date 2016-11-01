@@ -1,4 +1,4 @@
-include <spinner.608.lib.scad>;
+include <spinner.608.settings.scad>;
 use <knob.scad>;
 
 knob_608();

@@ -1,5 +1,6 @@
 use <spinner.scad>;
 include <spinner.608.settings.scad>;
+include <spinner.608.fatty.settings.scad>;
 include <spinner.608.4y.settings.scad>;
 
 build_spinner_608();

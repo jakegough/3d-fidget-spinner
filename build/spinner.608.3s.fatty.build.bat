@@ -1,0 +1,1 @@
+openscad.build.cmd "..\src\spinner.608.3s.fatty.scad"

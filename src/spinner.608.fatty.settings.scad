@@ -1,0 +1,1 @@
+default_bearing_height = 7 + (2 * 1.2);

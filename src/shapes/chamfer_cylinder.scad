@@ -3,8 +3,8 @@ use <torus.scad>;
 chamfer_cylinder();
 
 module chamfer_cylinder(
-    h = 1, 
-    r = 1, 
+    h = 10, 
+    r = 5, 
     chamfer_radius = 1)
 {
     chamfer_diameter = chamfer_radius * 2;
