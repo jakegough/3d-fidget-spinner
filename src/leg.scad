@@ -4,15 +4,24 @@ leg();
 
 module leg(
     h = 10,
-    r = 10,
-    chamfer_radius = 2, 
-    separation = 15)
+    r = undef,
+    d = 20,
+    chamfer_radius = undef, 
+    separation = 20)
 {        
     hull() 
     {            
-        chamfer_cylinder(h, r, chamfer_radius);
+        chamfer_cylinder(
+            h = h, 
+            r = r, 
+            d = d,
+            chamfer_radius = chamfer_radius);
     
         translate([separation, 0, 0])            
-        chamfer_cylinder(h, r, chamfer_radius);
+        chamfer_cylinder(
+            h = h, 
+            r = r,
+            d = d, 
+            chamfer_radius = chamfer_radius);
     }
 }

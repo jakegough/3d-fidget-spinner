@@ -10,7 +10,7 @@ module fillet(
     fillet_radius = 5)
 {
     outer_radius = leg_diameter / 2;
-    // the cube needs to extend to where the arc of the circle intersects the leg_qty
+    // the cube needs to extend only to where the arc of the circle intersects the leg_qty
     
     body_radius = outer_radius;
     body_minor_arc = 360 / leg_qty;

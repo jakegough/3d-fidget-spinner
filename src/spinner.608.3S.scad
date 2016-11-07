@@ -1,4 +1,5 @@
 use <spinner.scad>;
+include <filament_colors.scad>;
 include <spinner.608.settings.scad>;
 include <spinner.608.3s.settings.scad>;
 
@@ -24,5 +25,7 @@ module build_spinner_608(
       chamfer_radius = chamfer_radius,
       fillet_radius = fillet_radius,
       spline_qty = spline_qty,
-      spline_radius = spline_radius);
+      spline_radius = spline_radius,
+      color = filament_bright_green,
+      bearing_seal_color = bearing_seal_red);
 }

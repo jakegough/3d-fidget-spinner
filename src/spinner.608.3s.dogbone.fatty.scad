@@ -1,10 +1,10 @@
 include <shapes/shapes.lib.scad>;
 use <spinner.scad>;
 include <spinner.608.settings.scad>;
+include <spinner.608.fatty.settings.scad>;
 include <spinner.608.3s.settings.scad>;
 include <spinner.608.3s.dogbone.settings.scad>;
 
-color([0.9,0.9,0.9])
 build_spinner_608();
 
 module build_spinner_608(
@@ -18,8 +18,7 @@ module build_spinner_608(
     spline_radius = default_spline_radius,
     bite_inset = default_bite_inset,
     bite_radius = default_bite_radius,
-    bearing_center_distance = default_bearing_center_distance,
-    frame_center_distance = default_frame_center_distance)
+    axle_distance = default_axle_distance)
 {
         
     difference()
@@ -34,8 +33,7 @@ module build_spinner_608(
             fillet_radius = fillet_radius,
             spline_qty = spline_qty,
             spline_radius = spline_radius,
-            bearing_center_distance = bearing_center_distance,
-            frame_center_distance = frame_center_distance);
+            axle_distance = axle_distance);
 
         side_bites($fn = 256);
     }

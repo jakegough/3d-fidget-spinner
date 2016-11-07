@@ -29,7 +29,7 @@ module knob(
     // knob outside
     chamfer_cylinder(
         h = knob_thickness, 
-        r = knob_radius , 
+        r = knob_radius, 
         chamfer_radius = chamfer_radius);
 
     // knob inside
@@ -39,13 +39,11 @@ module knob(
         h = knob_thickness - chamfer_radius);
 
     // stem
-    translate([0, 0, stem_z])
     stem();
 
     // shoulder
-    translate([0, 0, shoulder_z])
     cylinder(
-        h = shoulder_height,
+        h = shoulder_z + shoulder_height,
         r = shoulder_radius);
 
     // splines
@@ -57,12 +55,12 @@ module knob(
         difference()
         {
             cylinder(
-                h = stem_depth,
+                h = stem_z + stem_depth,
                 r = stem_radius);
 
             translate([0,0,0.1])
             cylinder(
-                h = stem_depth + 0.2,
+                h = stem_z + stem_depth + 0.2,
                 r = stem_bore_radius);
         }
     }
@@ -71,7 +69,7 @@ module knob(
     {        
         spline_z = knob_thickness + shoulder_height;
         spline_h = stem_depth;
-        spline_taper = 0;
+        spline_taper = stem_depth / 5;
 
         for (i = [1:spline_qty])
         {

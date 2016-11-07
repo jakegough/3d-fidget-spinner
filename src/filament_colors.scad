@@ -1,0 +1,22 @@
+filament_bright_green = [100/255, 237/255, 95/255];
+filament_black = [20/255, 21/255, 18/255];
+filament_blue = [29/255, 90/255, 178/255];
+filament_brown = [92/255, 55/255, 44/255];
+filament_crystal_clear = [182/255, 197/255, 202/255];
+filament_gold = [182/255, 146/255, 73/255];
+filament_gray = [100/255, 102/255, 105255];
+filament_light_blue = [0/255, 162/255, 182/255];
+filament_magenta = [245/255, 55/255, 100/255];
+filament_natural = [203/255, 182/255, 151/255];
+filament_bright_orange = [255/255, 159/255, 2/255];
+filament_pink = [254/255, 174/255, 192/255];
+filament_fluorescent_purple = [105/255, 77/255, 179/255];
+filament_red = [247/255, 53/255, 59/255];
+filament_silver = [136/255, 141/255, 147/255];
+filament_white = [205/255, 211/255, 209/255];
+filament_gold = [166/255, 122/255, 41/255];
+filament_fluorescent_yellow = [186/255, 230/255, 68/255];
+
+bearing_seal_red = [244/255, 53/255, 56/255];
+bearing_seal_yellow = [229/255, 205/255, 89/255];
+bearing_seal_blue = [29/255, 101/255, 151/255];

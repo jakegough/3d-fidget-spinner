@@ -1,69 +1,74 @@
 use <torus.scad>;
 
+default_chamfer_radius = 1;
+default_extra_margin_bottom = 10;
+default_extra_margin_top = 10;
+
 inverted_chamfer_cylinder();
 
 module inverted_chamfer_cylinder(
     h = 10, 
-    r = 5, 
-    chamfer_radius = 1,
-    extra_margin_bottom = 1,
-    extra_margin_top = 1)
+    r = undef, 
+    d = 10,
+    chamfer_radius = undef,
+    extra_margin_bottom = undef,
+    extra_margin_top = undef)
 {    
-    chamfer_diameter = chamfer_radius * 2;
+
+    function _chamfer_radius() = (chamfer_radius != undef) ? chamfer_radius : default_chamfer_radius;
+    function _extra_margin_bottom() = (extra_margin_bottom != undef) ? extra_margin_bottom : default_extra_margin_bottom;
+    function _extra_margin_top() = (extra_margin_top != undef) ? extra_margin_top : default_extra_margin_top;
+    
+    function _r() = 
+        (r) ? r : 
+        (d) ? d / 2 :
+        "error";
+
+    function _d() = 
+        (r) ? r * 2 : 
+        (d) ? d :
+        "error";
     
     union()
     {
-        translate([0, 0, h-chamfer_radius])
-        hull()
-        {            
-            inverted_chamfer_rim_top();    
-            
-            translate([0,0,chamfer_radius])
-            cylinder(
-                h = extra_margin_top,
-                r = r + chamfer_radius);
-        }
-        
+        r = _r();
+        inverted_chamfer_rim_top();        
         cylinder(h=h, r=r);
-        
-        hull()
-        {            
-            inverted_chamfer_rim_bottom();
-            translate([0,0,-extra_margin_bottom])
-            cylinder(
-                h = extra_margin_bottom,
-                r = r + chamfer_radius);
-        }
+        inverted_chamfer_rim_bottom();
     }
     
     module inverted_chamfer_rim_top()
     {
-        difference()
+        extra = _extra_margin_top();
+        chamfer_radius = _chamfer_radius();
+        r = _r();
+        r1 = r;
+        r2 = r + chamfer_radius;
+
+        hull()
         {
-            inverted_chamfer_torus();
-            
-            translate([0,0,chamfer_radius])
-            cylinder(
-                h = chamfer_radius,
-                r = r + chamfer_radius);
+            translate([0, 0, h - chamfer_radius])
+            cylinder(h = chamfer_radius, r1 = r1, r2 = r2);
+
+            translate([0, 0, h])
+            cylinder(h=extra, r=r + chamfer_radius);
         }
     }
     
     module inverted_chamfer_rim_bottom()
     {
-        translate([0,0,-chamfer_radius])
-        difference()
+        extra = _extra_margin_bottom();
+        chamfer_radius = _chamfer_radius();
+        r = _r();
+        r1 = r + chamfer_radius;
+        r2 = r;
+        
+        hull()
         {
-            inverted_chamfer_torus();
-            
-            cylinder(
-                h = chamfer_radius,
-                r = r + chamfer_radius);
+            cylinder(h = chamfer_radius, r1 = r1, r2 = r2);
+
+            translate([0, 0, -extra])
+            cylinder(h=extra, r=r + chamfer_radius);
         }
-    }
-    
-    module inverted_chamfer_torus()
-    {
-        torus(h = chamfer_diameter, r = r + chamfer_radius, sides = 4);
     }
 }
