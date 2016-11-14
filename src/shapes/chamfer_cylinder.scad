@@ -1,13 +1,11 @@
-use <torus.scad>;
-
 default_chamfer_radius = 1;
 
-chamfer_cylinder();
+chamfer_cylinder(h = 10, d = 10, chamfer_radius = 2);
 
 module chamfer_cylinder(
-    h = 10, 
+    h = undef, 
     r = undef,
-    d = 10,
+    d = undef,
     chamfer_radius = undef)
 {
     function _chamfer_radius() = (chamfer_radius != undef) ? chamfer_radius : default_chamfer_radius;

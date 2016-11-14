@@ -21,7 +21,7 @@ module hex_nut_captive_hole(
     function _extra_margin_bottom() = (extra_margin_bottom != undef) ? extra_margin_bottom : default_extra_margin_bottom;
     function _extra_margin_top() = (extra_margin_top != undef) ? extra_margin_top : default_extra_margin_top;
     
-    flat_d = hex_nut_diameter(index) + (_clearance() * 2);
+    flat_d = hex_nut_diameter(index) + _clearance();
 
     polygon_captive_hole(
         sides = 6, 

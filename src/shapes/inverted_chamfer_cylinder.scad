@@ -1,15 +1,13 @@
-use <torus.scad>;
-
 default_chamfer_radius = 1;
 default_extra_margin_bottom = 10;
 default_extra_margin_top = 10;
 
-inverted_chamfer_cylinder();
+inverted_chamfer_cylinder(h = 10, d = 10);
 
 module inverted_chamfer_cylinder(
-    h = 10, 
+    h = undef, 
     r = undef, 
-    d = 10,
+    d = undef,
     chamfer_radius = undef,
     extra_margin_bottom = undef,
     extra_margin_top = undef)

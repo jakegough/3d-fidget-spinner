@@ -1,43 +1,41 @@
-include <shapes/shapes.lib.scad>;
+use <shapes/bearing.table.scad>;
+use <shapes/inverted_chamfer_cylinder.scad>;
+use <shapes/chamfer_cylinder.scad>;
 use <spinner.scad>;
-include <spinner.608.settings.scad>;
+
+include <filament_colors.scad>;
 include <spinner.608.3s.settings.scad>;
 include <spinner.608.3s.dogbone.settings.scad>;
 
-color([0.9,0.9,0.9])
-build_spinner_608();
+build_spinner_608_dogbone();
 
-module build_spinner_608(
+module build_spinner_608_dogbone(
     outer_diameter = default_outer_diameter,
-    bearing_height = default_bearing_height,
-    bearing_diameter = default_bearing_diameter,
-    bearing_clearance = default_bearing_clearance,
-    chamfer_radius = default_chamfer_radius,
-    fillet_radius = default_fillet_radius,
-    spline_qty = default_spline_qty,
-    spline_radius = default_spline_radius,
+    height = undef,
+    chamfer_radius = undef,
+    fillet_radius = undef,
     bite_inset = default_bite_inset,
     bite_radius = default_bite_radius,
     bearing_center_distance = default_bearing_center_distance,
-    frame_center_distance = default_frame_center_distance)
+    frame_center_distance = default_frame_center_distance,
+    color = filament_white)
 {
-        
+    function _height() = (height != undef) ? height : bearing_height("608");
+
     difference()
     {
         build_spinner(
             outer_diameter = outer_diameter,
-            bearing_height = bearing_height,
-            bearing_diameter = bearing_diameter,
-            bearing_clearance = bearing_clearance,
+            height = _height(),
             legs = 2,
             chamfer_radius = chamfer_radius,
             fillet_radius = fillet_radius,
-            spline_qty = spline_qty,
-            spline_radius = spline_radius,
             bearing_center_distance = bearing_center_distance,
-            frame_center_distance = frame_center_distance);
+            frame_center_distance = frame_center_distance,
+            color = color);
 
-        side_bites($fn = 256);
+        color(color)
+        side_bites($fn = 128);
     }
     
     module side_bites() {
@@ -48,13 +46,15 @@ module build_spinner_608(
     }
 
     module side_bite() {
+        height = _height();
         outer_radius = outer_diameter / 2;
         bite_shift = bite_radius + outer_radius - bite_inset;
         
         translate([0, bite_shift, 0])
+
         inverted_chamfer_cylinder(
             r = bite_radius, 
-            h = bearing_height,
+            h = height,
             chamfer_radius = chamfer_radius);
     }
 }

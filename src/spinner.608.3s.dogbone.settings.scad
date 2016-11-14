@@ -1,5 +1,5 @@
-default_bite_inset = 16;
-default_outer_diameter = 60;
-default_bite_radius = 60;
+default_bite_inset = 12;
+default_outer_diameter = 50;
+default_bite_radius = default_outer_diameter * 3;
 default_bearing_center_distance = 24;
-default_frame_center_distance = 8;
+default_frame_center_distance = 12;

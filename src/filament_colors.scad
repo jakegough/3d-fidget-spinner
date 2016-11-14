@@ -13,7 +13,8 @@ filament_pink = [254/255, 174/255, 192/255];
 filament_fluorescent_purple = [105/255, 77/255, 179/255];
 filament_red = [247/255, 53/255, 59/255];
 filament_silver = [136/255, 141/255, 147/255];
-filament_white = [205/255, 211/255, 209/255];
+//filament_white = [205/255, 211/255, 209/255];
+filament_white = [255/255, 255/255, 255/255];
 filament_gold = [166/255, 122/255, 41/255];
 filament_fluorescent_yellow = [186/255, 230/255, 68/255];
 

@@ -1,28 +1,18 @@
-use <spinner.scad>;
-include <spinner.608.settings.scad>;
+use <spinner.608.scad>;
 include <spinner.608.4y.settings.scad>;
 
-build_spinner_608();
+build_spinner_608_4y();
 
-module build_spinner_608(
-    outer_diameter = default_outer_diameter,
-    bearing_height = default_bearing_height,
-    bearing_diameter = default_bearing_diameter,
-    bearing_clearance = default_bearing_clearance,
-    legs = default_legs,
-    chamfer_radius = default_chamfer_radius,
-    fillet_radius = default_fillet_radius,
-    spline_qty = default_spline_qty,
-    spline_radius = default_spline_radius)
+module build_spinner_608_4y(
+    outer_diameter = undef,
+    chamfer_radius = undef,
+    fillet_radius = undef)
 {
-    build_spinner(
+    function _fillet_radius() = (fillet_radius != undef) ? fillet_radius : default_fillet_radius;
+
+    build_spinner_608(
       outer_diameter = outer_diameter,
-      bearing_height = bearing_height,
-      bearing_diameter = bearing_diameter,
-      bearing_clearance = bearing_clearance,
-      legs = legs,
-      chamfer_radius = chamfer_radius,
-      fillet_radius = fillet_radius,
-      spline_qty = spline_qty,
-      spline_radius = spline_radius);
+      legs = default_legs,
+      fillet_radius = _fillet_radius(),
+      chamfer_radius = chamfer_radius);
 }

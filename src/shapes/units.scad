@@ -1,1 +1,1 @@
-function inches_to_mm(inches) = inches * 25.39999983236;
+function inches_to_mm(inches) = inches * 25.4; //https://www.nist.gov/pml/weights-and-measures/si-units-length
